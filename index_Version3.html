@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oyun Yayıncısı - Ana Sayfa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+        }
+        
+        .game-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .typing-animation {
+            border-right: 2px solid #667eea;
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 50% { border-color: transparent; }
+            51%, 100% { border-color: #667eea; }
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <!-- Navigation -->
+    <nav class="bg-gray-800 shadow-lg fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="text-2xl font-bold gradient-bg bg-clip-text text-transparent">
+                        ⚡ MIREVOX
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#home" class="hover:text-purple-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Ana Sayfa</a>
+                        <a href="#about" class="hover:text-purple-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Hakkımda</a>
+                        <a href="#games" class="hover:text-purple-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Oyunlarım</a>
+
+                        <a href="#contact" class="hover:text-purple-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">İletişim</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden bg-gray-800">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block hover:text-purple-400 px-3 py-2 rounded-md text-base font-medium">Ana Sayfa</a>
+                <a href="#about" class="block hover:text-purple-400 px-3 py-2 rounded-md text-base font-medium">Hakkımda</a>
+                <a href="#games" class="block hover:text-purple-400 px-3 py-2 rounded-md text-base font-medium">Oyunlarım</a>
+
+                <a href="#contact" class="block hover:text-purple-400 px-3 py-2 rounded-md text-base font-medium">İletişim</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="gradient-bg min-h-screen flex items-center justify-center pt-16">
+        <div class="text-center px-4">
+            <div class="mb-8">
+                <div class="w-32 h-32 mx-auto bg-gradient-to-br from-purple-600 to-blue-600 rounded-full flex items-center justify-center text-6xl mb-6 shadow-2xl border-4 border-white">
+                    ⚡
+                </div>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold mb-4">
+                <span id="typing-text" class="typing-animation">Merhaba!</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
+                Oyun dünyasında maceraya hazır mısın? Benimle birlikte en heyecan verici oyunları keşfedelim!
+            </p>
+            <div class="space-x-4">
+                <button onclick="scrollToSection('about')" class="bg-white text-purple-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors">
+                    Beni Tanı
+                </button>
+                <a href="https://kick.com/mirevox" target="_blank" rel="noopener noreferrer" class="border-2 border-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-purple-600 transition-colors pulse-animation inline-block">
+                    🔴 Canlı Yayın
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-800">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16">Hakkımda</h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="w-64 h-64 mx-auto bg-gradient-to-br from-cyan-500 via-purple-500 to-pink-500 rounded-full flex items-center justify-center text-8xl shadow-2xl border-8 border-white/20">
+                        🎯
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 text-purple-400">Oyun Tutkunu Yayıncı</h3>
+                    <p class="text-lg mb-6 leading-relaxed">
+                        Merhaba! Ben bir oyun yayıncısıyım ve oyun dünyasının her köşesini keşfetmeyi seviyorum. 
+                        Aksiyon dolu FPS oyunlarından, strateji oyunlarına, indie yapımlardan AAA oyunlara kadar 
+                        geniş bir yelpazede içerik üretiyorum.
+                    </p>
+                    <p class="text-lg mb-6 leading-relaxed">
+                        Amacım, izleyicilerimle birlikte eğlenceli vakit geçirmek ve oyun deneyimlerimi paylaşmak. 
+                        Her yayında yeni şeyler öğrenmeye ve topluluğumuzla birlikte büyümeye odaklanıyorum.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 mt-8">
+                        <div class="text-center p-4 bg-gray-700 rounded-lg">
+                            <div class="text-2xl font-bold text-purple-400">500+</div>
+                            <div class="text-sm">Saat Yayın</div>
+                        </div>
+                        <div class="text-center p-4 bg-gray-700 rounded-lg">
+                            <div class="text-2xl font-bold text-purple-400">50+</div>
+                            <div class="text-sm">Oyun Tamamlandı</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Games Section -->
+    <section id="games" class="py-20 bg-gray-900">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16">Oynadığım Oyunlar</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="game-card bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+                    <div class="h-48 bg-gradient-to-br from-red-500 via-pink-500 to-orange-500 flex items-center justify-center text-6xl relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black/10"></div>
+                        <div class="relative z-10">🎯</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">FPS Oyunları</h3>
+                        <p class="text-gray-400 mb-4">Valorant, CS2, Apex Legends ve daha fazlası</p>
+                        <div class="flex items-center text-purple-400">
+                            <span class="text-sm">⭐ Favori Kategori</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="game-card bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+                    <div class="h-48 bg-gradient-to-br from-blue-500 via-indigo-500 to-cyan-500 flex items-center justify-center text-6xl relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black/10"></div>
+                        <div class="relative z-10">🧠</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Strateji Oyunları</h3>
+                        <p class="text-gray-400 mb-4">Age of Empires, Civilization, Total War</p>
+                        <div class="flex items-center text-green-400">
+                            <span class="text-sm">🧠 Zeka Oyunları</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="game-card bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+                    <div class="h-48 bg-gradient-to-br from-purple-500 via-violet-500 to-pink-500 flex items-center justify-center text-6xl relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black/10"></div>
+                        <div class="relative z-10">📖</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Hikaye Oyunları</h3>
+                        <p class="text-gray-400 mb-4">The Witcher, Cyberpunk, Detroit</p>
+                        <div class="flex items-center text-yellow-400">
+                            <span class="text-sm">📚 Derin Hikayeler</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-900">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16">İletişim</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 text-purple-400">Benimle İletişime Geç</h3>
+                    <p class="text-lg mb-8 leading-relaxed">
+                        Oyun önerilerin, işbirliği tekliflerin veya sadece sohbet etmek istiyorsan, 
+                        bana ulaşmaktan çekinme! Her mesajı okuyorum ve mümkün olduğunca hepsini yanıtlamaya çalışıyorum.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <a href="https://kick.com/mirevox" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-4 p-4 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors cursor-pointer">
+                            <div class="text-2xl">🚀</div>
+                            <div>
+                                <div class="font-semibold">Kick</div>
+                                <div class="text-gray-400">kick.com/mirevox</div>
+                            </div>
+                        </a>
+                        
+                        <a href="https://youtube.com/@mirevox?si=If9HOvxQAGQaqP3l" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-4 p-4 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors cursor-pointer">
+                            <div class="text-2xl">🎥</div>
+                            <div>
+                                <div class="font-semibold">YouTube</div>
+                                <div class="text-gray-400">youtube.com/@mirevox</div>
+                            </div>
+                        </a>
+                        
+                    </div>
+                </div>
+                
+                <div>
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">İsim</label>
+                            <input type="text" class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg focus:border-purple-400 focus:outline-none transition-colors" placeholder="Adın nedir?">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium mb-2">E-posta</label>
+                            <input type="email" class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg focus:border-purple-400 focus:outline-none transition-colors" placeholder="email@example.com">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Mesaj</label>
+                            <textarea rows="5" class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg focus:border-purple-400 focus:outline-none transition-colors" placeholder="Mesajını buraya yaz..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-purple-600 hover:bg-purple-700 py-3 rounded-lg font-semibold transition-colors">
+                            Mesaj Gönder 🚀
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-8 border-t border-gray-700">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <div class="text-2xl font-bold gradient-bg bg-clip-text text-transparent mb-4">
+                ⚡ MIREVOX
+            </div>
+            <p class="text-gray-400 mb-4">Oyun dünyasında birlikte maceraya!</p>
+            <p class="text-sm text-gray-500">© 2024 MIREVOX. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Add click listeners to navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                // Close mobile menu if open
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Typing animation
+        const texts = ['Merhaba!', 'Hoş Geldin!', 'Oyuna Hazır mısın?'];
+        let textIndex = 0;
+        let charIndex = 0;
+        const typingElement = document.getElementById('typing-text');
+
+        function typeText() {
+            if (charIndex < texts[textIndex].length) {
+                typingElement.textContent = texts[textIndex].substring(0, charIndex + 1);
+                charIndex++;
+                setTimeout(typeText, 100);
+            } else {
+                setTimeout(eraseText, 2000);
+            }
+        }
+
+        function eraseText() {
+            if (charIndex > 0) {
+                typingElement.textContent = texts[textIndex].substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(eraseText, 50);
+            } else {
+                textIndex = (textIndex + 1) % texts.length;
+                setTimeout(typeText, 500);
+            }
+        }
+
+        // Start typing animation
+        typeText();
+
+        // Contact form
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const name = this.querySelector('input[type="text"]').value;
+            const email = this.querySelector('input[type="email"]').value;
+            const message = this.querySelector('textarea').value;
+            
+            if (name && email && message) {
+                // Show success message
+                alert('Mesajın alındı! En kısa sürede geri dönüş yapacağım. 😊');
+                this.reset();
+            } else {
+                alert('Lütfen tüm alanları doldur.');
+            }
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('bg-opacity-95');
+            } else {
+                nav.classList.remove('bg-opacity-95');
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9867d0d7f6690d37',t:'MTc1OTExMDQ4MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
